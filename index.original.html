@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>來點文化研製所</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js"></script>
+</head>
+<body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="page-grain" aria-hidden="true"></div>
+    <nav class="section-rail" aria-label="頁面導覽">
+        <a href="#story" aria-label="品牌故事"></a>
+        <a href="#products" aria-label="產品系列"></a>
+        <a href="#stores" aria-label="尋找我們"></a>
+    </nav>
+    <div class="scroll-container">
+        <!-- 第一頁：品牌故事 -->
+        <section id="story" class="section">
+            <div class="feather-bg"></div>
+            <div class="ambient-lottie ambient-lottie-story" aria-hidden="true">
+                <lottie-player src="animations/holdpaper.json" background="transparent" speed="0.72" loop autoplay></lottie-player>
+            </div>
+            <div class="scroll-content">
+                <div class="section-title-block">
+                    <div class="hero-header">
+                        <div class="hero-logo">
+                            <img src="images/來點文化.png" alt="來點文化">
+                        </div>
+                        <h1>來點文化研製所</h1>
+                        <div class="title-lottie">
+                            <lottie-player src="animations/Writing.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-sections">
+                    <div class="story-section">
+                        <p>這不是什麼遠大理想，只是想在這個「已讀即刪」的年代，把快要消失的重量找回來。</p>
+                        <p>手機震動一下代表一個人，但邊角泛黃、帶著筆尖壓痕的那張舊卡片，卻是一個靈魂。</p>
+                        <p>我們受夠了螢幕的空虛，想找回那種「需要等待」的快樂。</p>
+                        <p>有些情感，只有在筆尖接觸紙張的磨擦聲中，才能被完整安放。</p>
+                    </div>
+
+                    <div class="story-section">
+                        <p>我們最堅持的，是那些別人眼裡「沒效率」的細節。</p>
+                        <p>「這紙成本高又難印，消費者哪看得出來？」我們就是過不去心裡那一關。</p>
+                        <p>機器能複製畫面，卻複製不了「生命感」。</p>
+                        <p>我們迷戀纖維觸感、著迷郵戳的落點，這些不夠標準的痕跡，才是作品的靈魂。</p>
+                    </div>
+
+                    <div class="story-section">
+                        <p>「佔用」你三分鐘。</p>
+                        <p>靜下來想一句話、</p>
+                        <p>摸一下紙張的紋路，</p>
+                        <p>讓思念跨越螢幕，</p>
+                        <p>透過郵戳變成一份紮實的驚喜。</p>
+                    </div>
+                </div>
+
+                <p class="story-closing"><strong>Hit you with some culture.</strong><br>指尖流動的，那麼浪漫。</p>
+            </div>
+        </section>
+
+        <!-- 第二頁：品牌產品 -->
+        <section id="products" class="section">
+            <div class="feather-bg"></div>
+            <div class="ambient-lottie ambient-lottie-products" aria-hidden="true">
+                <lottie-player src="animations/add-to-cart.json" background="transparent" speed="0.58" loop autoplay></lottie-player>
+            </div>
+            <div class="scroll-content">
+                <div class="section-title-block">
+                    <div class="title-lottie left">
+                        <lottie-player src="animations/writing-message.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                    </div>
+                    <h1>產品系列一覽</h1>
+                </div>
+
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item" data-folder="city-postcards" data-images="hero.JPG,P4110704.JPG,P4110705.JPG">
+                            <div class="product-gallery">
+                                <img class="gallery-img" alt="城市字繪系列明信片 1">
+                                <img class="gallery-img" alt="城市字繪系列明信片 2">
+                                <img class="gallery-img" alt="城市字繪系列明信片 3">
+                            </div>
+                            <h3>城市字繪系列明信片</h3>
+                            <div class="product-story-links" aria-label="城市字繪系列明信片網友使用體驗">
+                                <a href="https://www.instagram.com/stories/milerchan_arch/3607684885005683869?reel_id=55400245970&amp;reel_owner_id=55400245970" target="_blank" rel="noopener noreferrer">查看網友分享</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-folder="cultural-assets" data-images="P5091627.JPG,P5091633.JPG,P5091654.JPG">
+                            <div class="product-gallery">
+                                <img class="gallery-img" alt="文化資產系列明信片 1">
+                                <img class="gallery-img" alt="文化資產系列明信片 2">
+                                <img class="gallery-img" alt="文化資產系列明信片 3">
+                            </div>
+                            <h3>文化資產系列明信片</h3>
+                        </div>
+                        <div class="carousel-item" data-folder="banknote-postcards" data-images="P4110788.JPG,P4110789.JPG,P4110790.JPG">
+                            <div class="product-gallery">
+                                <img class="gallery-img" alt="銀票系列明信片 1">
+                                <img class="gallery-img" alt="銀票系列明信片 2">
+                                <img class="gallery-img" alt="銀票系列明信片 3">
+                            </div>
+                            <h3>銀票系列明信片</h3>
+                            <div class="product-story-links" aria-label="銀票系列明信片網友使用體驗">
+                                <a href="https://www.instagram.com/stories/milerchan_arch/3666825306078734262?reel_id=55400245970&amp;reel_owner_id=55400245970" target="_blank" rel="noopener noreferrer">查看網友分享</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-folder="taiwan-map-stamp-book" data-images="P4110693.JPG,P4110792.JPG,P4141138.JPG">
+                            <div class="product-gallery">
+                                <img class="gallery-img" alt="台灣地圖字繪印章本 1">
+                                <img class="gallery-img" alt="台灣地圖字繪印章本 2">
+                                <img class="gallery-img" alt="台灣地圖字繪印章本 3">
+                            </div>
+                            <h3>台灣地圖字繪印章本(御朱印亦可)</h3>
+                            <div class="product-story-links" aria-label="台灣地圖字繪印章本網友使用體驗">
+                                <a href="https://www.instagram.com/stories/milerchan_arch/3686565968546244276?reel_id=55400245970&amp;reel_owner_id=55400245970" target="_blank" rel="noopener noreferrer">台灣旅行集章冊</a>
+                                <a href="https://www.instagram.com/stories/milerchan_arch/3662621770700900508?reel_id=55400245970&amp;reel_owner_id=55400245970" target="_blank" rel="noopener noreferrer">來點套色章</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-folder="taiwan-travel-journal" data-images="P4291378.JPG,P4291379.JPG,P4291388.JPG">
+                            <div class="product-gallery">
+                                <img class="gallery-img" alt="台灣旅行手帳本 1">
+                                <img class="gallery-img" alt="台灣旅行手帳本 2">
+                                <img class="gallery-img" alt="台灣旅行手帳本 3">
+                            </div>
+                            <h3>台灣旅行手帳本</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-dots" aria-label="產品輪播目前位置"></div>
+                    <button class="carousel-btn prev">&lt;</button>
+                    <button class="carousel-btn next">&gt;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三頁：寄售店舖 -->
+        <section id="stores" class="section">
+            <div class="feather-bg"></div>
+            <div class="ambient-lottie ambient-lottie-stores" aria-hidden="true">
+                <lottie-player src="animations/talking.json" background="transparent" speed="0.66" loop autoplay></lottie-player>
+            </div>
+            <div class="scroll-content">
+                <div class="section-title-block">
+                    <h1>尋找我們</h1>
+                    <div class="title-lottie right">
+                        <lottie-player src="animations/shackpaper.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                    </div>
+                </div>
+
+                <div class="stores-grid">
+                    <div class="store-card active">
+                        <h3>臺中高鐵站</h3>
+                        <p class="store-name">鐵道故事館</p>
+                        <p class="store-status">進行中</p>
+                        <a href="https://maps.google.com/maps/search/鐵道故事館+臺中高鐵站" target="_blank" class="store-link">查看地址</a>
+                    </div>
+
+                    <div class="store-card active">
+                        <h3>臺中逢甲</h3>
+                        <p class="store-name">豆花店</p>
+                        <p class="store-status">進行中</p>
+                        <a href="https://www.google.com/maps/search/統元豆花+中央公園店+臺中逢甲" target="_blank" class="store-link">查看地址</a>
+                    </div>
+
+                    <div class="store-card active">
+                        <h3>台北</h3>
+                        <p class="store-name">弄宅咖啡</p>
+                        <p class="store-status">進行中</p>
+                        <a href="https://maps.google.com/maps/search/弄宅咖啡+台北" target="_blank" class="store-link">查看地址</a>
+                    </div>
+
+                    <div class="store-card active">
+                        <h3>彰化</h3>
+                        <p class="store-name">北斗書店</p>
+                        <p class="store-status">進行中</p>
+                        <a href="https://maps.google.com/maps/search/北斗書店+彰化" target="_blank" class="store-link">查看地址</a>
+                    </div>
+
+                    <div class="store-card">
+                        <h3>高雄</h3>
+                        <p class="store-name">民宿店</p>
+                        <p class="store-status coming">推進中</p>
+                        <span class="store-link disabled">即將上線</span>
+                    </div>
+
+                    <div class="store-card">
+                        <h3>日本</h3>
+                        <p class="store-name">門司港</p>
+                        <p class="store-status coming">推進中</p>
+                        <span class="store-link disabled">即將上線</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 底部固定圖標 -->
+    <footer class="footer-icons">
+        </a>
+        <a href="https://line.me/R/ti/p/@115taeqb?oat_content=url&ts=10230854" target="_blank" class="icon-link" title="Line">
+            <lottie-player src="animations/line.json" background="transparent" speed="0.35" loop autoplay></lottie-player>
+            <span>Line</span>
+        <a href="https://www.facebook.com/MilerDesign" target="_blank" class="icon-link" title="Facebook">
+            <lottie-player src="animations/facebook.json" background="transparent" speed="0.55" loop autoplay></lottie-player>
+            <span>Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/milerchan_arch" target="_blank" class="icon-link" title="IG">
+            <lottie-player src="animations/ig-icon.json" background="transparent" speed="0.35" loop autoplay></lottie-player>
+            <span>IG</span>
+        </a>
+        <a href="https://www.threads.com/@milerchan_arch" target="_blank" class="icon-link" title="Threads">
+            <lottie-player src="animations/threads.json" background="transparent" speed="0.35" loop autoplay></lottie-player>
+            <span>Threads</span>
+        </a>
+        <a href="https://myship.7-11.com.tw/general/detail/GM2510076239847" target="_blank" class="icon-link" title="賣貨便">
+            <lottie-player src="animations/add-to-cart.json" background="transparent" speed="0.45" loop autoplay></lottie-player>
+            <span>賣貨便</span>
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
