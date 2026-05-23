@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>來點文化研製所</title>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: http://localhost:8000 https://*; img-src 'self' data: http://localhost:8000 https://*; connect-src 'self' https://unpkg.com;">
+  <!-- <meta http-equiv="X-Frame-Options" content="DENY"> -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
+</head>
+
+<body>
+  <!-- ------------------------------- -->
+  <div id="loader-wrapper">
+    <div class="global-loader"></div>
+  </div>
+
+  <!-- ----------------------- -->
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="page-grain" aria-hidden="true"></div>
+  <nav class="section-rail" aria-label="頁面導覽">
+    <a href="#story" aria-label="品牌故事"></a>
+    <a href="#products" aria-label="產品系列"></a>
+    <a href="#stores" aria-label="尋找我們"></a>
+  </nav>
+  <div class="scroll-container">
+    <!-- 第一頁：品牌故事 -->
+    <section id="story" class="section">
+      <div class="feather-bg"></div>
+      <div class="ambient-lottie ambient-lottie-story" aria-hidden="true">
+        <dotlottie-player src="animations/holdpaper.lottie" background="transparent" speed="0.72" loop
+          autoplay></dotlottie-player>
+      </div>
+      <div class="scroll-content">
+        <div class="section-title-block">
+          <div class="hero-header">
+            <div class="hero-logo">
+              <img src="images/來點文化.png" draggable="false" alt="來點文化">
+            </div>
+            <h1>來點文化研製所</h1>
+            <div class="title-lottie">
+              <dotlottie-player src="animations/Writing.json" background="transparent" speed="1" loop
+                autoplay></dotlottie-player>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-sections">
+          <div class="story-section">
+            <p>這不是什麼遠大的理想，</p>
+            <p>只是想在這個「已讀即刪」的年代裡，</p>
+            <p>把那些快要消失的重量，慢慢找回來。</p>
+            <p>手機總在震動情緒，</p>
+            <p>而一張邊角微微泛黃、留著筆尖壓痕的舊卡片，</p>
+            <p>卻像一個仍有溫度的靈魂。</p>
+            <p>「我們」有些厭倦了螢幕裡輕飄飄的存在，</p>
+            <p>開始懷念那種----</p>
+
+          </div>
+          <div class="story-section">
+
+            <p>「落筆時沙沙作響、蓋印後留下痕跡」的立體快樂。</p>
+            <p>有些情感，</p>
+            <p>只有在筆尖接觸紙張的磨擦聲裡，</p>
+            <p>才能被完整安放。</p>
+            <p>於是，「我們」固執地保留了一些</p>
+            <p>別人眼裡的「沒效率」。</p>
+            <p>「這種紙成本高、又難印，他們哪看得出來？」</p>
+            <p>AI可以不斷優化效率與結果，</p>
+            <p>卻始終無法理解那些在人與人之間，悄悄發生的 Fragile Beauty。</p>
+
+          </div>
+          <div class="story-section">
+
+            <p>「我們」迷戀纖維的觸感，</p>
+            <p>著迷郵戳的落點，</p>
+            <p>那些不夠標準的痕跡，反而成為作品真正的靈魂。</p>
+            <p>也許只需要幾分鐘，</p>
+            <p>就能重新想起某些被遺忘的瞬間，</p>
+            <p>指尖輕輕掠過紙張的紋路，</p>
+            <p>讓記憶順著筆尖流動，</p>
+            <p>最後透過一枚郵戳，</p>
+            <p>那一定格的完整溫度，就這樣靜靜留存下來。</p>
+          </div>
+        </div>
+
+        <p class="story-closing"><strong>Hit you with some culture.</strong><br>指尖流動的，那麼浪漫。</p>
+      </div>
+    </section>
+
+    <!-- 第二頁：品牌產品 -->
+    <section id="products" class="section">
+      <div class="feather-bg"></div>
+      <div class="ambient-lottie ambient-lottie-products" aria-hidden="true">
+        <dotlottie-player src="animations/add-to-cart.json" background="transparent" speed="0.58" loop
+          autoplay></dotlottie-player>
+      </div>
+      <div class="scroll-content">
+        <div class="section-title-block">
+          <!-- <div class="title-lottie right">
+                        <dotlottie-player src="animations/writing-message.json" background="transparent" speed="1" loop
+                            autoplay></dotlottie-player>
+                    </div> -->
+          <h1>產品一覽</h1>
+        </div>
+
+        <div class="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item" data-folder="city-postcards"
+              data-images="hero-1400.webp,P4110704-1400.webp,P4110705-1400.webp">
+              <div class="product-gallery">
+                <img class="gallery-img" draggable="false" alt="城市字繪系列明信片 1">
+                <img class="gallery-img" draggable="false" alt="城市字繪系列明信片 2">
+                <img class="gallery-img" draggable="false" alt="城市字繪系列明信片 3">
+              </div>
+              <h3>城市字繪系列明信片</h3>
+              <div class="product-story-links" aria-label="城市字繪系列明信片網友使用體驗">
+                <a href="https://www.instagram.com/stories/highlights/18071804921102313/" target="_blank"
+                  rel="noopener noreferrer">查看網友分享</a>
+              </div>
+            </div>
+            <div class="carousel-item" data-folder="heritage-postcards"
+              data-images="P5091815-1400.webp,P5091821-1400.webp,P5091824-1400.webp">
+              <div class="product-gallery">
+                <img class="gallery-img" draggable="false" alt="文化資產系列明信片 1">
+                <img class="gallery-img" draggable="false" alt="文化資產系列明信片 2">
+                <img class="gallery-img" draggable="false" alt="文化資產系列明信片 3">
+              </div>
+              <h3>文化資產系列明信片</h3>
+            </div>
+            <div class="carousel-item" data-folder="yinpiao-postcards"
+              data-images="P4110788-1400.webp,P4110789-1400.webp,P4110790-1400.webp">
+              <div class="product-gallery">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="銀票系列明信片 1"
+                  data-product-name="銀票系列明信片">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="銀票系列明信片 2"
+                  data-product-name="銀票系列明信片">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="銀票系列明信片 3"
+                  data-product-name="銀票系列明信片">
+              </div>
+              <h3>銀票系列明信片</h3>
+              <div class="product-story-links" aria-label="銀票系列明信片網友使用體驗">
+                <a href="https://www.instagram.com/stories/highlights/18333704827213791/" target="_blank"
+                  rel="noopener noreferrer">查看網友分享</a>
+              </div>
+            </div>
+            <div class="carousel-item" data-folder="taiwan-stampbook"
+              data-images="P4110693-1400.webp,P4110792-1400.webp,P4141138-1400.webp">
+              <div class="product-gallery">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣地圖字繪印章本 1"
+                  data-product-name="台灣地圖字繪印章本">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣地圖字繪印章本 2"
+                  data-product-name="台灣地圖字繪印章本">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣地圖字繪印章本 3"
+                  data-product-name="台灣地圖字繪印章本">
+              </div>
+              <h3>台灣地圖字繪印章本(御朱印亦可)</h3>
+              <div class="product-story-links" aria-label="台灣地圖字繪印章本網友使用體驗">
+                <a href="https://www.instagram.com/stories/highlights/18066051743626133/" target="_blank"
+                  rel="noopener noreferrer">台灣旅行集章冊</a>
+                <a href="https://www.instagram.com/stories/highlights/18085067828020614/" target="_blank"
+                  rel="noopener noreferrer">來點套色章</a>
+              </div>
+            </div>
+            <div class="carousel-item" data-folder="taiwan-travel-journal"
+              data-images="P4291378-1400.webp,P4291379-1400.webp,P4291388-1400.webp">
+              <div class="product-gallery">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣旅行手帳本 1"
+                  data-product-name="台灣旅行手帳本">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣旅行手帳本 2"
+                  data-product-name="台灣旅行手帳本">
+                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣旅行手帳本 3"
+                  data-product-name="台灣旅行手帳本">
+              </div>
+              <h3>台灣旅行手帳本</h3>
+            </div>
+          </div>
+          <div class="carousel-dots" aria-label="產品輪播目前位置"></div>
+          <button class="carousel-btn prev">&lt;</button>
+          <button class="carousel-btn next">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第三頁：寄售店舖 -->
+    <section id="stores" class="section">
+      <div class="feather-bg"></div>
+      <div class="ambient-lottie ambient-lottie-stores" aria-hidden="true">
+        <dotlottie-player src="animations/holdingstamp.lottie" background="transparent" speed="0.66" loop
+          autoplay></dotlottie-player>
+      </div>
+      <div class="scroll-content">
+        <div class="section-title-block">
+          <h1>尋找我們</h1>
+          <div class="title-lottie">
+            <dotlottie-player src="/animations/shoppingbag.json" background="transparent" speed="1" loop
+              autoplay></dotlottie-player>
+          </div>
+        </div>
+
+        <div class="stores-grid">
+          <div class="store-card active">
+            <h3>臺中高鐵站</h3>
+            <p class="store-name">鐵道故事館</p>
+            <p class="store-status">進行中</p>
+            <div class="store-buttons">
+              <button class="store-link store-detail-btn" data-store="taidao">詳情</button>
+              <a href="https://www.google.com/maps/search/%E9%90%B5%E9%81%93%E6%95%85%E4%BA%8B%E9%A4%A8" target="_blank"
+                class="store-link store-address-btn">地址</a>
+            </div>
+          </div>
+
+          <div class="store-card active">
+            <h3>臺中逢甲</h3>
+            <p class="store-name">豆花-中央公園店</p>
+            <p class="store-status">進行中</p>
+            <div class="store-buttons">
+              <button class="store-link store-detail-btn" data-store="douhua">詳情</button>
+              <a href="https://www.google.com/maps/search/%E8%B1%86%E8%8A%B1%E4%B8%AD%E5%A4%AE%E5%85%AC%E5%9C%92%E5%BA%97"
+                target="_blank" rel="noopener noreferrer" class="store-link store-address-btn">地址</a>
+            </div>
+          </div>
+
+          <div class="store-card active">
+            <h3>台北</h3>
+            <p class="store-name">弄宅咖啡</p>
+            <p class="store-status">進行中</p>
+            <div class="store-buttons">
+              <button class="store-link store-detail-btn" data-store="nongzhai">詳情</button>
+              <a href="https://www.google.com/maps/search/%E5%BC%84%E5%AE%85%E5%92%96%E5%95%A1" target="_blank"
+                rel="noopener noreferrer" class="store-link store-address-btn">地址</a>
+            </div>
+          </div>
+
+          <div class="store-card active">
+            <h3>彰化</h3>
+            <p class="store-name">有冊店</p>
+            <p class="store-status">進行中</p>
+            <div class="store-buttons">
+              <button class="store-link store-detail-btn" data-store="youce">詳情</button>
+              <a href="https://www.google.com/maps/search/%E6%9C%89%E5%86%8A%E5%BA%97" target="_blank"
+                rel="noopener noreferrer" class="store-link store-address-btn">地址</a>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <h3>高雄</h3>
+            <p class="store-name">參陸之壹民宿店</p>
+            <p class="store-status coming">推進中</p>
+            <div class="store-buttons">
+              <button class="store-link store-detail-btn" data-store="gaoxiong">詳情</button>
+              <a href="https://www.google.com/maps/search/%E5%8F%83%E9%99%B8%E4%B9%8B%E5%A3%B9%E6%B0%91%E5%AE%BF"
+                target="_blank" rel="noopener noreferrer" class="store-link store-address-btn">地址</a>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <h3>日本</h3>
+            <p class="store-name">鹿台-日本福岡</p>
+            <p class="store-status coming">推進中</p>
+            <div class="store-buttons">
+              <button class="store-link store-detail-btn" data-store="japan">詳情</button>
+              <a href="https://www.google.com/maps/search/%E3%80%92803-0844+%E7%A6%8F%E5%B2%A1%E7%9C%8C%E5%8C%97%E4%B9%9D%E5%B7%9E%E5%B8%82%E5%B0%8F%E5%80%89%E5%8C%97%E5%8C%BA%E7%9C%9F%E9%B6%B41%E4%B8%81%E7%9B%AE8-1%E9%B9%BF%E5%8F%B0"
+                target="_blank" rel="noopener noreferrer" class="store-link store-address-btn">地址</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 底部固定圖標 -->
+  <footer class="footer-icons">
+    <a href="https://line.me/R/ti/p/@115taeqb?oat_content=url&ts=10230854" target="_blank" rel="noopener noreferrer"
+      class="icon-link" title="Line">
+      <dotlottie-player src="animations/line.json" background="transparent" speed="0.35" loop
+        autoplay></dotlottie-player>
+      <span>Line</span>
+    </a>
+    <a href="https://www.facebook.com/MilerDesign" target="_blank" rel="noopener noreferrer" class="icon-link"
+      title="Facebook">
+      <dotlottie-player src="animations/facebook.json" background="transparent" speed="0.55" loop
+        autoplay></dotlottie-player>
+      <span>Facebook</span>
+    </a>
+    <a href="https://www.instagram.com/milerchan_arch" target="_blank" rel="noopener noreferrer" class="icon-link"
+      title="IG">
+      <dotlottie-player src="animations/ig-icon.json" background="transparent" speed="0.35" loop
+        autoplay></dotlottie-player>
+      <span>IG</span>
+    </a>
+    <a href="https://www.threads.com/@milerchan_arch" target="_blank" rel="noopener noreferrer" class="icon-link"
+      title="Threads">
+      <dotlottie-player src="animations/threads.json" background="transparent" speed="0.35" loop
+        autoplay></dotlottie-player>
+      <span>Threads</span>
+    </a>
+    <a href="https://myship.7-11.com.tw/general/detail/GM2510076239847" target="_blank" rel="noopener noreferrer"
+      class="icon-link" title="賣貨便">
+      <dotlottie-player src="animations/add-to-cart.json" background="transparent" speed="0.45" loop
+        autoplay></dotlottie-player>
+      <span>賣貨便</span>
+    </a>
+  </footer>
+
+  <!-- 店舖詳情彈出層 -->
+  <div class="store-detail-modal hidden" id="storeDetailModal">
+    <div class="store-detail-backdrop"></div>
+    <div class="store-detail-panel">
+      <button class="store-detail-close" aria-label="關閉詳情">×</button>
+      <img class="store-detail-img" draggable="false" alt="店舖詳情圖片" src="">
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
