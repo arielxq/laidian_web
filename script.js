@@ -866,25 +866,100 @@ window.addEventListener("load", () => {
   }, 500);
 });
 
-// 產品圖片懶加載與錯誤處理
+// 產品圖片動態生成、加載控制與錯誤處理
 function initProductImageLoading() {
-  const images = document.querySelectorAll('.product-img');
-  images.forEach(img => {
-    const loader = img.previousElementSibling;
+  const carouselItems = document.querySelectorAll('#products .carousel-item');
+  if (carouselItems.length === 0) return;
 
-    // 將 onload/onerror 邏輯獨立出來
-    const handleLoad = () => {
-      img.classList.add('loaded');
-      if (loader) loader.style.display = 'none';
-    };
+  // 1. JS 產品資料包
+  const productData = [
+    {
+      folder: 'city-postcards',
+      name: '城市字繪系列明信片',
+      images: ['hero-1400.webp', 'P4110704-1400.webp', 'P4110705-1400.webp']
+    },
+    {
+      folder: 'heritage-postcards',
+      name: '文化資產系列明信片',
+      images: ['P5091815-1400.webp', 'P5091821-1400.webp', 'P5091824-1400.webp']
+    },
+    {
+      folder: 'yinpiao-postcards',
+      name: '銀票系列明信片',
+      images: ['P4110788-1400.webp', 'P4110789-1400.webp', 'P4110790-1400.webp']
+    },
+    {
+      folder: 'taiwan-stampbook',
+      name: '台灣地圖字繪印章本',
+      images: ['P4110693-1400.webp', 'P4110792-1400.webp', 'P4141138-1400.webp']
+    },
+    {
+      folder: 'taiwan-travel-journal',
+      name: '台灣旅行手帳本',
+      images: ['P4291378-1400.webp', 'P4291379-1400.webp', 'P4291388-1400.webp']
+    }
+  ];
 
-    img.onload = handleLoad;
-    img.onerror = () => {
-      console.warn("圖片加載失敗:", img.src);
-      handleLoad(); // 即便失敗也隱藏 loader，避免轉圈圈卡死
-    };
+  carouselItems.forEach((item) => {
+    // 🛠️ 核心修正：抓取當前欄位內的 <h3> 文字，拿它去 productData 裡面找符合的資料
+    const itemTitle = item.querySelector('h3')?.textContent?.trim() || '';
 
-    if (img.complete) handleLoad();
+    // 模糊比對：只要 <h3> 包含 JS 資料裡的 name（例如 "台灣地圖字繪印章本(御朱印亦可)" 也能對到 "台灣地圖字繪印章本"）
+    const currentData = productData.find(p => itemTitle.includes(p.name));
+
+    if (!currentData) {
+      console.warn(`找不到品名對應的圖片資料: "${itemTitle}"`);
+      return;
+    }
+
+    const folder = currentData.folder;
+    const imageList = currentData.images;
+    const productName = currentData.name;
+    const isClickable = item.getAttribute('data-clickable') === 'true';
+
+    // 找到該項目內的圖片容器
+    const gallery = item.querySelector('.product-gallery');
+    if (!folder || !imageList || !gallery) return;
+
+    // 清空容器（防止重複初始化或 Clone 帶來的重複生成）
+    gallery.innerHTML = '';
+
+    // 2. 循環建立 img 標籤并綁定載入邏輯
+    imageList.forEach((imgName, index) => {
+      const img = document.createElement('img');
+
+      // 加上時間戳記清除快取
+      const cleanImgName = imgName.trim();
+      img.src = `images/${folder}/${cleanImgName}?t=${Date.now()}`;
+
+      img.draggable = false;
+      img.setAttribute('draggable', 'false');
+      img.alt = `${productName} ${index + 1}`;
+
+      // 3. 根據設定加入對應的 class 與屬性
+      if (isClickable) {
+        img.className = 'gallery-img product-img product-img-clickable';
+        img.setAttribute('data-product-name', productName);
+      } else {
+        img.className = 'gallery-img product-img';
+      }
+
+      const handleLoad = () => {
+        img.classList.add('loaded');
+      };
+
+      img.onload = handleLoad;
+      img.onerror = () => {
+        console.error("圖片實體路徑加載失敗，請檢查路徑與檔名:", img.src);
+        handleLoad();
+      };
+
+      // 4. 塞入網頁容器
+      gallery.appendChild(img);
+
+      // 5. 立即檢查快取狀態
+      if (img.complete) handleLoad();
+    });
   });
 }
 

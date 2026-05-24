@@ -8,7 +8,7 @@
   <meta http-equiv="Content-Security-Policy"
     content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: http://localhost:8000 https://*; img-src 'self' data: http://localhost:8000 https://*; connect-src 'self' https://unpkg.com;">
   <!-- <meta http-equiv="X-Frame-Options" content="DENY"> -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=1.0">
   <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 
 </head>
@@ -101,21 +101,14 @@
       </div>
       <div class="scroll-content">
         <div class="section-title-block">
-          <!-- <div class="title-lottie right">
-                        <dotlottie-player src="animations/writing-message.json" background="transparent" speed="1" loop
-                            autoplay></dotlottie-player>
-                    </div> -->
           <h1>產品一覽</h1>
         </div>
 
         <div class="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item" data-folder="city-postcards"
-              data-images="hero-1400.webp,P4110704-1400.webp,P4110705-1400.webp">
+
+            <div class="carousel-item">
               <div class="product-gallery">
-                <img class="gallery-img" draggable="false" alt="城市字繪系列明信片 1">
-                <img class="gallery-img" draggable="false" alt="城市字繪系列明信片 2">
-                <img class="gallery-img" draggable="false" alt="城市字繪系列明信片 3">
               </div>
               <h3>城市字繪系列明信片</h3>
               <div class="product-story-links" aria-label="城市字繪系列明信片網友使用體驗">
@@ -123,24 +116,15 @@
                   rel="noopener noreferrer">查看網友分享</a>
               </div>
             </div>
-            <div class="carousel-item" data-folder="heritage-postcards"
-              data-images="P5091815-1400.webp,P5091821-1400.webp,P5091824-1400.webp">
+
+            <div class="carousel-item">
               <div class="product-gallery">
-                <img class="gallery-img" draggable="false" alt="文化資產系列明信片 1">
-                <img class="gallery-img" draggable="false" alt="文化資產系列明信片 2">
-                <img class="gallery-img" draggable="false" alt="文化資產系列明信片 3">
               </div>
               <h3>文化資產系列明信片</h3>
             </div>
-            <div class="carousel-item" data-folder="yinpiao-postcards"
-              data-images="P4110788-1400.webp,P4110789-1400.webp,P4110790-1400.webp">
+
+            <div class="carousel-item" data-clickable="true">
               <div class="product-gallery">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="銀票系列明信片 1"
-                  data-product-name="銀票系列明信片">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="銀票系列明信片 2"
-                  data-product-name="銀票系列明信片">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="銀票系列明信片 3"
-                  data-product-name="銀票系列明信片">
               </div>
               <h3>銀票系列明信片</h3>
               <div class="product-story-links" aria-label="銀票系列明信片網友使用體驗">
@@ -148,15 +132,9 @@
                   rel="noopener noreferrer">查看網友分享</a>
               </div>
             </div>
-            <div class="carousel-item" data-folder="taiwan-stampbook"
-              data-images="P4110693-1400.webp,P4110792-1400.webp,P4141138-1400.webp">
+
+            <div class="carousel-item" data-clickable="true">
               <div class="product-gallery">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣地圖字繪印章本 1"
-                  data-product-name="台灣地圖字繪印章本">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣地圖字繪印章本 2"
-                  data-product-name="台灣地圖字繪印章本">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣地圖字繪印章本 3"
-                  data-product-name="台灣地圖字繪印章本">
               </div>
               <h3>台灣地圖字繪印章本(御朱印亦可)</h3>
               <div class="product-story-links" aria-label="台灣地圖字繪印章本網友使用體驗">
@@ -166,18 +144,13 @@
                   rel="noopener noreferrer">來點套色章</a>
               </div>
             </div>
-            <div class="carousel-item" data-folder="taiwan-travel-journal"
-              data-images="P4291378-1400.webp,P4291379-1400.webp,P4291388-1400.webp">
+
+            <div class="carousel-item" data-clickable="true">
               <div class="product-gallery">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣旅行手帳本 1"
-                  data-product-name="台灣旅行手帳本">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣旅行手帳本 2"
-                  data-product-name="台灣旅行手帳本">
-                <img class="gallery-img product-img-clickable" draggable="false" alt="台灣旅行手帳本 3"
-                  data-product-name="台灣旅行手帳本">
               </div>
               <h3>台灣旅行手帳本</h3>
             </div>
+
           </div>
           <div class="carousel-dots" aria-label="產品輪播目前位置"></div>
           <button class="carousel-btn prev">&lt;</button>
@@ -317,7 +290,7 @@
   </div>
 
 
-  <script src="script.js"></script>
+  <script src="script.js?v=1.0"></script>
 </body>
 
 </html>
