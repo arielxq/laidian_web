@@ -9,6 +9,20 @@
     content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: http://localhost:8000 https://*; img-src 'self' data: http://localhost:8000 https://*; connect-src 'self' https://unpkg.com;">
   <!-- <meta http-equiv="X-Frame-Options" content="DENY"> -->
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="./fonts/" as="font" type="font/woff2" crossorigin Cache-Control: max-age=31536000,
+    immutable>
+  <!-- <link rel="preload" href="./fonts/851tegaki_zatsu_normal_0883.woff2" as="font" type="font/woff2" crossorigin
+    Cache-Control: max-age=31536000, immutable> -->
+  <link rel="preload" href="./fonts/HanWangMingBlack.woff2" as="font" type="font/woff2" crossorigin Cache-Control:
+    max-age=31536000, immutable>
+  <link rel="preload" href="./fonts/JasonHandwriting6p.woff2" as="font" type="font/woff2" crossorigin Cache-Control:
+    max-age=31536000, immutable>
+  <link rel="preload" href="./fonts/qingsong2.woff2" as="font" type="font/woff2" crossorigin Cache-Control:
+    max-age=31536000, immutable>
+  <!-- <link rel="preload" href="./fonts/kefont.woff2" as="font" type="font/woff2" crossorigin Cache-Control:
+    max-age=31536000, immutable> -->
+  <link rel="preload" href="./fonts/StarPandaKidsBeta2.0.woff2" as="font" type="font/woff2" crossorigin Cache-Control:
+    max-age=31536000, immutable>
   <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 
 </head>
@@ -39,11 +53,11 @@
         <div class="section-title-block">
           <div class="hero-header">
             <div class="hero-logo">
-              <img src="images/來點文化.png" draggable="false" alt="來點文化">
+              <img src="images/laidian.webp" draggable="false" alt="來點文化">
             </div>
             <h1>來點文化研製所</h1>
             <div class="title-lottie">
-              <dotlottie-player src="animations/Writing.json" background="transparent" speed="1" loop
+              <dotlottie-player src="animations/Writing.lottie" background="transparent" speed="1" loop
                 autoplay></dotlottie-player>
             </div>
           </div>
@@ -56,35 +70,36 @@
             <p>把那些快要消失的重量，慢慢找回來。</p>
             <p>手機總在震動情緒，</p>
             <p>而一張邊角微微泛黃、留著筆尖壓痕的舊卡片，</p>
-            <p>卻像一個仍有溫度的靈魂。</p>
-            <p>「我們」有些厭倦了螢幕裡輕飄飄的存在，</p>
+            <p>卻在輕聲耳語，互道想念。</p>
+            <p>「我們」有些厭倦了螢幕裡若有似無的存在，</p>
             <p>開始懷念那種----</p>
 
           </div>
           <div class="story-section">
 
-            <p>「落筆時沙沙作響、蓋印後留下痕跡」的立體快樂。</p>
+            <p>「筆尖下沙沙作響、蓋印後時光留痕」的立體快樂。</p>
             <p>有些情感，</p>
             <p>只有在筆尖與紙張磨擦的聲音裡，</p>
             <p>才能被好好安放。</p>
             <p>於是，「我們」固執地保留了一些</p>
-            <p>別人眼裡的「不夠有效率」。</p>
+            <p>別人眼裡的不夠有效率。</p>
             <p>「這種紙成本高、又難印，他們哪看得出來？」</p>
-            <p>AI可以不斷優化效率與結果，</p>
-            <p>卻始終無法複製那些人與人之間的羈絆，悄悄發生的 Fragile Beauty。</p>
+            <p>不斷優化效率與結果的AI，</p>
+            <p>卻始終無法複製那些人與人之間的羈絆，</p>
+            <p>以及那些悄悄發生的 Fragile Beauty。</p>
 
           </div>
           <div class="story-section">
 
             <p>「我們」迷戀纖維的觸感，</p>
             <p>著迷郵戳的落點，</p>
-            <p>那些不夠完美標準的痕跡，反而成為作品真正的靈魂。</p>
-            <p>也許只需要幾分鐘，</p>
-            <p>就能重新想起某些被遺忘的瞬間，</p>
-            <p>指尖輕輕掠過紙張的紋路，</p>
+            <p>那些不夠標準的痕跡，反而成就了作品真正的靈魂。</p>
+            <p>只要幾分鐘，</p>
+            <p>當指尖掠過紙張的紋路，</p>
             <p>讓記憶順著筆尖流動，</p>
+            <p>就能重新聽見，某些被按下靜音的晴朗。</p>
             <p>最後透過一枚郵戳，</p>
-            <p>把那一定格的溫度，靜靜留存下來。</p>
+            <p>把那一定格的溫度，靜靜留存。</p>
           </div>
         </div>
 
@@ -96,7 +111,7 @@
     <section id="products" class="section">
       <div class="feather-bg"></div>
       <div class="ambient-lottie ambient-lottie-products" aria-hidden="true">
-        <dotlottie-player src="animations/add-to-cart.json" background="transparent" speed="0.58" loop
+        <dotlottie-player data-src="animations/add-to-cart.json" background="transparent" speed="0.58" loop
           autoplay></dotlottie-player>
       </div>
       <div class="scroll-content">

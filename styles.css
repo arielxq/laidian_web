@@ -1,53 +1,77 @@
 /* ==========================================================================
    全域變數與字體設定
    ========================================================================== */
-@font-face {
-  font-family: '851tegaki_zatsu_normal_0883';
-  src: url('./fonts/851tegaki_zatsu_normal_0883.woff2') format('woff2');
-  font-weight: 400 700;
-  font-style: normal;
-}
+
 
 @font-face {
   font-family: 'SentyCreek';
-  src: url('./fonts/SentyCreek.woff2') format('woff2');
+  src: url('./fonts/SentyCreek.oem') format('opentype');
+  src: url('./fonts/SentyCreek.woff2') format('woff2'),
+    url('./fonts/SentyCreek.woff') format('woff'),
+    url('./fonts/SentyCreek.ttf') format('truetype');
+  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
   font-weight: 400 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'HanWangMingBlack';
-  src: url('./fonts/HanWangMingBlack.woff2') format('woff2');
+  src: url('./fonts/HanWangMingBlack.oem') format('opentype');
+  src: url('./fonts/HanWangMingBlack.woff2') format('woff2'),
+    url('./fonts/HanWangMingBlack.woff') format('woff'),
+    url('./fonts/HanWangMingBlack.ttf') format('truetype');
+  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
   font-weight: 400 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'JasonHandwriting6p';
-  src: url('./fonts/JasonHandwriting6p.woff2') format('woff2');
+  src: url('./fonts/JasonHandwriting6p.oem') format('opentype');
+  src: url('./fonts/JasonHandwriting6p.woff2') format('woff2'),
+    url('./fonts/JasonHandwriting6p.woff') format('woff'),
+    url('./fonts/JasonHandwriting6p.ttf') format('truetype');
+  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
   font-weight: 400 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'qingsong2';
-  src: url('./fonts/qingsong2.woff2') format('woff2');
+  src: url('./fonts/qingsong2.oem') format('opentype');
+  src: url('./fonts/qingsong2.woff2') format('woff2'),
+    url('./fonts/qingsong2.woff') format('woff'),
+    url('./fonts/qingsong2.ttf') format('truetype');
   font-weight: 400 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'kefont';
-  src: url('./fonts/kefont.woff2') format('woff2');
+  src: url('./fonts/') format('opentype');
+  src: url('./fonts/kefont.woff2') format('woff2'),
+    url('./fonts/kefont.woff') format('woff'),
+    url('./fonts/kefont.ttf') format('truetype');
+  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
+
   font-weight: 400 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'StarPandaKidsBeta2.0';
-  src: url('./fonts/StarPandaKidsBeta2.0.woff2') format('woff2');
+  src: url('./fonts/StarPandaKidsBeta2.0.woff2') format('woff2'),
+    url('./fonts/StarPandaKidsBeta2.0.woff') format('woff'),
+    url('./fonts/StarPandaKidsBeta2.0.ttf') format('truetype');
+  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
   font-weight: 400 700;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -68,14 +92,17 @@
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --base-font: 'SentyCreek', cursive !important;
   --story-title-font: 'HanWangMingBlack', var(--base-font);
-  --story-body-font: '851tegaki_zatsu_normal_0883', cursive;
+  --story-body-font: 'JasonHandwriting6p', cursive;
   --story-foot-font: 'StarPandaKidsBeta2.0', cursive;
   --product-title-font: 'HanWangMingBlack', var(--base-font);
   --product-body-font: 'JasonHandwriting6p', cursive;
   --store-title-font: 'HanWangMingBlack', var(--base-font);
   --store-body-font: 'JasonHandwriting6p', cursive;
   --store-button-font: 'qingsong2', cursive;
-  --footer-font: 'kefont', cursive;
+  --footer-font: 'qingsong2', cursive;
+  /* 萬一網頁字體在極端弱網環境下沒載入完，先用系統明體撐著，避免直接變空白 */
+  font-family: 'SentyCreek', "Noto Serif TC", "Microsoft JhengHei", serif;
+
 }
 
 * {
@@ -379,7 +406,7 @@ body::after {
 
 .story-section {
   padding: 30px 28px 34px;
-  background: url('images/background12.png') center/cover no-repeat, linear-gradient(160deg, rgba(255, 247, 235, 0.85) 0%, rgba(247, 229, 209, 0.85) 70%, rgba(242, 216, 191, 0.85) 100%);
+  background: url('images/background12.webp') center/cover no-repeat, linear-gradient(160deg, rgba(255, 247, 235, 0.85) 0%, rgba(247, 229, 209, 0.85) 70%, rgba(242, 216, 191, 0.85) 100%);
   background-blend-mode: overlay;
   border-radius: 14px 18px 12px 20px;
   border: 1px solid rgba(118, 89, 70, 0.12);
@@ -785,7 +812,7 @@ button,
   padding: 24px;
   border: 1px solid rgba(118, 89, 70, 0.16);
   border-radius: 18px 22px 18px 22px;
-  background: url('images/background-post09.svg') center/cover no-repeat, linear-gradient(135deg, rgba(235, 214, 183, 0.75), rgba(214, 183, 154, 0.75)), repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 10px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 10px), repeating-linear-gradient(45deg, rgba(118, 89, 70, 0.05) 0 2px, transparent 2px 9px);
+  background: url('images/background-post09.webp') center/cover no-repeat, linear-gradient(135deg, rgba(235, 214, 183, 0.75), rgba(214, 183, 154, 0.75)), repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 10px), repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 10px), repeating-linear-gradient(45deg, rgba(118, 89, 70, 0.05) 0 2px, transparent 2px 9px);
   background-blend-mode: overlay, multiply, normal, normal, normal;
   transition: transform 0.3s var(--ease-soft), box-shadow 0.3s ease, opacity 0.3s ease, border-color 0.3s ease;
   opacity: 0.72;

@@ -241,10 +241,37 @@ function setupCardTilt() {
 }
 
 function setupLottieMood() {
+  // 1. 設定 Intersection Observer 處理延遲載入
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const player = entry.target;
+        // 只有當尚未載入時才賦值 src
+        if (player.dataset.src) {
+          player.setAttribute('src', player.dataset.src);
+          player.removeAttribute('data-src');
+        }
+        obs.unobserve(player);
+      }
+    });
+  }, { rootMargin: '200px' });
+
+  // 2. 處理所有 dotlottie-player
   document.querySelectorAll('dotlottie-player').forEach(player => {
+    // --- 原有的滑鼠互動邏輯 ---
     const defaultSpeed = Number(player.getAttribute('speed')) || 1;
-    player.addEventListener('mouseenter', () => player.setSpeed?.(defaultSpeed * 1.25) || player.getLottie?.().setSpeed(defaultSpeed * 1.25));
-    player.addEventListener('mouseleave', () => player.setSpeed?.(defaultSpeed) || player.getLottie?.().setSpeed(defaultSpeed));
+    player.addEventListener('mouseenter', () => player.setSpeed?.(defaultSpeed * 1.25));
+    player.addEventListener('mouseleave', () => player.setSpeed?.(defaultSpeed));
+
+    // --- 新增的延遲載入邏輯 ---
+    // 如果不是首屏優先(priority)，則進行懶載入處理
+    if (!player.classList.contains('priority')) {
+      if (player.getAttribute('src')) {
+        player.dataset.src = player.getAttribute('src');
+        player.removeAttribute('src'); // 移走 src，阻止瀏覽器自動下載
+      }
+      observer.observe(player);
+    }
   });
 }
 
