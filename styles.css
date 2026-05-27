@@ -1276,3 +1276,93 @@ dotlottie-player::part(container) {
     transform: rotate(45deg);
   }
 }
+
+/* 修改原有的 .loader-wrapper 或新增一個通用的 overlay 類別 */
+.overlay-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  /* 放大圖片時，背景通常需要比首頁深 */
+  display: none;
+  /* 預設不顯示 */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  /* 確保比圖片還高 */
+  transition: opacity 0.3s ease;
+}
+
+/* 將你原本想要用的 loader 加入並確保樣式正確 */
+.my-loader {
+  width: 40px;
+  aspect-ratio: 1;
+  display: flex;
+  transform-origin: 0% 150%;
+  animation: l20-0 2s infinite linear;
+}
+
+/* ... 貼上你原本的 .loader 相關 CSS ... */
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  display: flex;
+  transform-origin: 0% 150%;
+  animation: l20-0 2s infinite linear;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  flex: 1;
+  background: #f03355;
+  animation: l20-1 1s infinite linear alternate;
+  border-radius: 100px 0 0 100px;
+  transform-origin: 100% 100%;
+}
+
+.loader:after {
+  border-radius: 0 100px 100px 0;
+  transform-origin: 0% 100%;
+  --s: -1;
+}
+
+@keyframes l20-0 {
+
+  0%,
+  10% {
+    transform: translateY(0) scaleY(1)
+  }
+
+  49.99% {
+    transform: translateY(-100%) scaleY(1)
+  }
+
+  50% {
+    transform: translateY(-100%) scaleY(-1)
+  }
+
+  90%,
+  100% {
+    transform: translateY(-200%) scaleY(-1)
+  }
+}
+
+@keyframes l20-1 {
+
+  0%,
+  20% {
+    transform: rotate(0deg) translate(0, 0) rotate(0deg)
+  }
+
+  50% {
+    transform: rotate(calc(var(--s, 1)*-90deg)) translate(0, 0) rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(calc(var(--s, 1)*-90deg)) translate(0, -20px) rotate(calc(var(--s, 1)*-90deg))
+  }
+}

@@ -309,10 +309,18 @@ function initProductImageLoading() {
   });
 }
 
+// 通用函式：用來顯示或隱藏 loader
+function toggleLoader(show) {
+  const loaderEl = document.getElementById('loader-container');
+  if (loaderEl) {
+    loaderEl.style.display = show ? 'flex' : 'none';
+  }
+}
+
 // ========== 通用彈出層與縮放功能 ==========
 function setupStoreDetails() {
   const storeImages = {
-    'taidao': 'images/tiedao.webp', 'douhua': 'images/douhua.webp', 'nongzhai': 'images/nongzhai.webp',
+    'tiedao': 'images/tiedao.webp', 'douhua': 'images/douhua.webp', 'nongzhai': 'images/nongzhai.webp',
     'youce': 'images/youce.webp', 'gaoxiong': 'images/sanluzhiyi.webp', 'japan': 'images/lutai.webp'
   };
 
@@ -323,6 +331,12 @@ function setupStoreDetails() {
   document.querySelectorAll('.store-detail-btn').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
+      toggleLoader(true); // 顯示 Loader
+
+      modalImage.onload = () => {
+        toggleLoader(false); // 圖片載入完，隱藏 Loader
+      };
+
       modalImage.src = storeImages[btn.getAttribute('data-store')] || '';
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
@@ -331,6 +345,7 @@ function setupStoreDetails() {
 
   setupMobilePinchZoom(modal, modalImage, modal.querySelector('.store-detail-close'), modal.querySelector('.store-detail-backdrop'));
 }
+
 
 function setupProductLightbox() {
   // 原本的燈箱結構不存在於 HTML 內，這裡補上動態建立，確保不影響原本功能
@@ -352,9 +367,16 @@ function setupProductLightbox() {
   document.addEventListener('click', e => {
     if (e.target.classList.contains('product-img-clickable')) {
       e.preventDefault();
-      lightboxImg.src = e.target.src;
-      lightbox.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
+      toggleLoader(true); // 顯示 Loader
+
+      const tempImg = new Image();
+      tempImg.src = e.target.src;
+      tempImg.onload = () => {
+        lightboxImg.src = tempImg.src;
+        toggleLoader(false); // 隱藏 Loader
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      };
     }
   });
 
