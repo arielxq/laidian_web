@@ -320,7 +320,7 @@ function toggleLoader(show) {
 // ========== 通用彈出層與縮放功能 ==========
 function setupStoreDetails() {
   const storeImages = {
-    'tiedao': 'images/tiedao.webp', 'douhua': 'images/douhua.webp', 'nongzhai': 'images/nongzhai.webp',
+    'taidao': 'images/tiedao.webp', 'douhua': 'images/douhua.webp', 'nongzhai': 'images/nongzhai.webp',
     'youce': 'images/youce.webp', 'gaoxiong': 'images/sanluzhiyi.webp', 'japan': 'images/lutai.webp'
   };
 
