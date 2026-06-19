@@ -9,7 +9,6 @@
   src: url('./fonts/SentyCreek.woff2') format('woff2'),
     url('./fonts/SentyCreek.woff') format('woff'),
     url('./fonts/SentyCreek.ttf') format('truetype');
-  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
@@ -21,7 +20,6 @@
   src: url('./fonts/HanWangMingBlack.woff2') format('woff2'),
     url('./fonts/HanWangMingBlack.woff') format('woff'),
     url('./fonts/HanWangMingBlack.ttf') format('truetype');
-  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
@@ -33,7 +31,6 @@
   src: url('./fonts/JasonHandwriting6p.woff2') format('woff2'),
     url('./fonts/JasonHandwriting6p.woff') format('woff'),
     url('./fonts/JasonHandwriting6p.ttf') format('truetype');
-  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
@@ -56,8 +53,6 @@
   src: url('./fonts/kefont.woff2') format('woff2'),
     url('./fonts/kefont.woff') format('woff'),
     url('./fonts/kefont.ttf') format('truetype');
-  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
-
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
@@ -68,7 +63,6 @@
   src: url('./fonts/StarPandaKidsBeta2.0.woff2') format('woff2'),
     url('./fonts/StarPandaKidsBeta2.0.woff') format('woff'),
     url('./fonts/StarPandaKidsBeta2.0.ttf') format('truetype');
-  /* 依序提供不同格式的字體檔，確保在各種瀏覽器和設備上都有最佳的相容性和效能 */
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
@@ -100,9 +94,7 @@
   --store-body-font: 'JasonHandwriting6p', cursive;
   --store-button-font: 'qingsong2', cursive;
   --footer-font: 'qingsong2', cursive;
-  /* 萬一網頁字體在極端弱網環境下沒載入完，先用系統明體撐著，避免直接變空白 */
   font-family: 'SentyCreek', "Noto Serif TC", "Microsoft JhengHei", serif;
-
 }
 
 * {
@@ -124,10 +116,29 @@ body {
   min-height: 100%;
 }
 
+#page-title {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  background: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  display: block !important;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  font-weight: 900 !important;
+  margin: 0 !important;
+  font-family: var(--story-title-font) !important;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+}
+
 h1,
 h2,
 h3,
-.section-title-block h1,
+.section-title-block h2,
 .store-card h3,
 .carousel-item h3 {
   font-weight: 700;
@@ -336,10 +347,6 @@ body::after {
   opacity: 0.62;
 }
 
-.feather-bg {
-  display: none;
-}
-
 .section-title-block {
   margin-bottom: 48px;
   display: flex;
@@ -368,13 +375,13 @@ body::after {
   animation: logoBreathe 4.8s var(--ease-soft) infinite;
 }
 
-.hero-header h1 {
+.hero-header h2 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin: 0;
   color: var(--neutral);
   font-family: var(--story-title-font);
   line-height: 1.1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   font-weight: 700;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45), 1px 2px 0 rgba(148, 98, 68, 0.08);
 }
@@ -470,7 +477,7 @@ body::after {
   font-size: 1.2rem;
   margin: 0 0 16px;
   color: var(--neutral);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .story-section p {
@@ -507,21 +514,14 @@ body::after {
   transform: translateX(-50%) rotate(-2deg);
 }
 
-h1 {
+h2 {
   font-size: clamp(2rem, 5vw, 3rem);
   margin: 0;
   color: var(--neutral);
+  font-weight: 700;
   font-family: var(--base-font);
   line-height: 1.1;
   letter-spacing: 0.05em;
-}
-
-h2 {
-  font-size: 1.15rem;
-  margin: 0 0 12px;
-  color: var(--neutral);
-  font-weight: 600;
-  font-family: var(--base-font);
 }
 
 h3 {
@@ -535,7 +535,7 @@ h3 {
   background: transparent;
 }
 
-#products h1 {
+#products h2 {
   font-family: var(--product-title-font);
 }
 
@@ -544,7 +544,7 @@ h3 {
   font-family: var(--product-body-font);
 }
 
-#stores h1,
+/* #stores h2,
 .store-card h3 {
   font-family: var(--store-title-font);
 }
@@ -554,9 +554,156 @@ h3 {
 .store-name,
 .store-status {
   font-family: var(--store-body-font);
+} */
+
+
+
+/* 1. 整個購買區塊的基礎配置 */
+
+
+/* 確保容器定位獨立，不影響外部其他區塊 */
+.products-purchase-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+/* 當 Hover 整個區塊或主按鈕時，觸發子元件顯影 */
+.products-purchase-section:hover .hide {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1) translateY(0) !important;
+}
+
+/* 預設隱藏與初始動畫配置 (比照 Uiverse 心法，縮小並淡出) */
+.products-purchase-section .hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+/* 容器核心：確保絕對定位基準 */
+.products-fab {
+  position: relative;
+  display: inline-block;
+  margin: 60px auto;
+}
+
+/* 🚀 關鍵：分解線容器，啟用點擊穿透 */
+.fab-labels span {
+  position: absolute;
+  font-size: 12px;
+  color: #8c7b6c;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: normal;
+  line-height: 1.6;
+  width: 250px;
+  word-wrap: break-word;
+  overflow: break-word;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* 四象限配置：防止文字遮擋 */
+.label-tl,
+.label-tr,
+.label-bl,
+.label-br {
+  max-width: 150px;
+}
+
+.label-tl {
+  bottom: 100%;
+  right: 0;
+  transform: translate(50%, 10px);
+  text-align: right;
+}
+
+.label-tr {
+  bottom: 100%;
+  left: 0;
+  transform: translate(-50%, 10px);
+  text-align: left;
+}
+
+
+.label-bl {
+  top: 100%;
+  right: 0;
+  transform: translate(50%, -10px);
+  text-align: right;
+}
+
+.label-br {
+  top: 100%;
+  left: 0;
+  transform: translate(-50%, -10px);
+  text-align: left;
+}
+
+/* 當滑鼠懸停在 products-fab (整個區域) 時 */
+.products-fab:hover .label-tl {
+  opacity: 1;
+  transform: translate(50%, -15px);
+}
+
+.products-fab:hover .label-tr {
+  opacity: 1;
+  transform: translate(-50%, -15px);
+}
+
+.products-fab:hover .label-bl {
+  opacity: 1;
+  transform: translate(50%, 15px);
+}
+
+.products-fab:hover .label-br {
+  opacity: 1;
+  transform: translate(-50%, 15px);
+}
+
+/* 子按鈕群組容器 */
+.sub-buttons-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+/* 子按鈕基本樣式與動態效果 */
+.products-fab .theme-fab-sub {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.9);
+  max-height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 160px;
+}
+
+/* 當主按鈕被點擊激活（加上 .is-expanded）時的子按鈕狀態 */
+.products-fab.is-expanded .theme-fab-sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  max-height: 50px;
+  padding: 8px 20px;
+  margin-top: 6px;
 }
 
 .carousel {
+  display: block;
   position: relative;
   width: 100%;
   margin-top: 40px;
@@ -568,20 +715,23 @@ h3 {
 .carousel-inner {
   position: relative;
   display: flex;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .carousel-item {
-  flex: 0 0 100%;
+  flex: 0 1 100%;
   min-width: 100%;
   padding: 32px 0;
   text-align: center;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   perspective: 1000px;
   z-index: 1;
   max-width: 100% !important;
+  position: relative;
 }
 
 .carousel-item.is-active {
@@ -681,14 +831,14 @@ h3 {
   min-height: 340px;
   transform-style: preserve-3d;
   width: 100%;
-  max-width: 800px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   min-width: 0 !important;
 }
 
 .gallery-img {
-  flex: 1 1 0;
+  flex: 0 0 100%;
   width: 100%;
   max-width: 240px;
   height: 320px;
@@ -791,6 +941,58 @@ h3 {
   transform: rotate(-3deg);
 }
 
+/* =========== 新增主題化按鈕 (取代 DaisyUI default) =========== */
+.theme-fab-main {
+  position: relative;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  border-radius: 9px 12px 8px 13px;
+  /* 有機形狀 */
+  padding: 12px 20px;
+  font-family: var(--store-button-font);
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 10px rgba(80, 62, 49, 0.1);
+  transition: all 0.3s var(--ease-soft);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.theme-fab-main:hover~.fab-labels span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.theme-fab-sub {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 249, 238, 0.95);
+  color: var(--neutral);
+  border-radius: 48% 52% 44% 56%;
+  border: 1.5px dashed rgba(118, 89, 70, 0.3);
+  padding: 8px 16px;
+  font-family: var(--store-button-font);
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-width: 150px;
+  box-shadow: 0 4px 10px rgba(80, 62, 49, 0.08);
+  transition: all 0.3s var(--ease-soft);
+  margin-bottom: 8px;
+}
+
+.theme-fab-sub:hover {
+  background: var(--paper);
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: var(--shadow-md);
+  color: var(--primary-dark);
+}
+
 p,
 a,
 span,
@@ -801,7 +1003,7 @@ button,
   font-family: var(--base-font);
 }
 
-.stores-grid {
+.store-carousel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
@@ -900,6 +1102,7 @@ button,
   background: var(--primary-dark);
   box-shadow: var(--shadow-md);
   transform: rotate(-1deg);
+  color: white;
 }
 
 .store-buttons {
@@ -910,7 +1113,8 @@ button,
   align-items: center;
 }
 
-/* 圖片放大通用樣式 (支援雙指放大彈出層) */
+
+
 .image-lightbox,
 .store-detail-modal {
   position: fixed;
@@ -1046,6 +1250,11 @@ button,
 }
 
 @media (max-width: 768px) {
+  #page-title {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+
   .section {
     padding: 40px 16px 80px;
   }
@@ -1095,6 +1304,65 @@ button,
     margin: 0 auto;
     align-items: center;
     justify-items: center;
+    overflow: hidden;
+  }
+
+  .products-fab {
+    margin: 40px auto;
+  }
+
+  .fab-labels span {
+    width: 125px !important;
+    /* 稍微再縮小一點點寬度，留出更多中間腹地 */
+    max-width: 125px !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* ==========================================================================
+     四象限標籤優化：利用 margin 往兩側推開，製造中間的空隙
+     ========================================================================== */
+
+  /* 【左上標籤】靠右對齊中線，並往左邊推開 8px 的空隙 */
+  .products-fab:hover .label-tl,
+  .products-fab .label-tl {
+    bottom: 102%;
+    right: 50%;
+    transform: translate(0, -10px) !important;
+    margin-right: 8px !important;
+    /* 👈 關鍵：推開左邊與右邊標籤的距離 */
+    text-align: right;
+  }
+
+  /* 【右上標籤】靠左對齊中線，並往右邊推開 8px 的空隙 */
+  .products-fab:hover .label-tr,
+  .products-fab .label-tr {
+    bottom: 102%;
+    left: 50%;
+    transform: translate(0, -10px) !important;
+    margin-left: 8px !important;
+    /* 👈 關鍵：推開右邊與左邊標籤的距離 */
+    text-align: left;
+  }
+
+  /* 【左下標籤】往左邊推開 8px */
+  .products-fab:hover .label-bl,
+  .products-fab .label-bl {
+    top: 102%;
+    right: 50%;
+    transform: translate(0, 10px) !important;
+    margin-right: 8px !important;
+    text-align: right;
+  }
+
+  /* 【右下標籤】往右邊推開 8px */
+  .products-fab:hover .label-br,
+  .products-fab .label-br {
+    top: 102%;
+    left: 50%;
+    transform: translate(0, 10px) !important;
+    margin-left: 8px !important;
+    text-align: left;
   }
 
   .gallery-img {
@@ -1126,7 +1394,7 @@ button,
     opacity: 1 !important;
   }
 
-  .stores-grid {
+  .store-carousel {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 
@@ -1216,7 +1484,6 @@ button,
   }
 }
 
-/* Lottie & Loading */
 dotlottie-player {
   background: transparent !important;
   background-color: transparent !important;
@@ -1242,6 +1509,7 @@ dotlottie-player::part(container) {
 }
 
 #loader-wrapper.hidden {
+  display: none;
   opacity: 0;
   pointer-events: none;
 }
@@ -1277,7 +1545,6 @@ dotlottie-player::part(container) {
   }
 }
 
-/* 修改原有的 .loader-wrapper 或新增一個通用的 overlay 類別 */
 .overlay-loader {
   position: fixed;
   top: 0;
@@ -1285,27 +1552,13 @@ dotlottie-player::part(container) {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  /* 放大圖片時，背景通常需要比首頁深 */
   display: none;
-  /* 預設不顯示 */
   justify-content: center;
   align-items: center;
   z-index: 10000;
-  /* 確保比圖片還高 */
   transition: opacity 0.3s ease;
 }
 
-/* 將你原本想要用的 loader 加入並確保樣式正確 */
-.my-loader {
-  width: 40px;
-  aspect-ratio: 1;
-  display: flex;
-  transform-origin: 0% 150%;
-  animation: l20-0 2s infinite linear;
-}
-
-/* ... 貼上你原本的 .loader 相關 CSS ... */
-/* HTML: <div class="loader"></div> */
 .loader {
   width: 40px;
   aspect-ratio: 1;
