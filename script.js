@@ -363,53 +363,83 @@ function toggleLoader(show) {
 }
 
 // ========== 通用彈出層與縮放功能 ==========
+// ========== 通用彈出層與縮放功能（完全復刻產品燈箱機制與樣式） ==========
 function setupStoreDetails() {
   const storeImages = {
-    'taidao': 'images/tiedao.webp',
+    'tiedao': 'images/tiedao1.webp',
     'douhua': 'images/douhua.webp',
-    'nongzhai': 'images/nongzhai.webp',
-    'youce': 'images/youce.webp',
+    'nongzhai': 'images/nongzhai1.webp',
+    'youce': 'images/youce1.webp',
     'gaoxiong': 'images/sanluzhiyi.webp',
     'japan': 'images/lutai.webp'
   };
 
-  const modal = document.getElementById('storeDetailModal');
-  const modalImage = modal?.querySelector('.store-detail-img');
-  if (!modal || !modalImage) return;
+  // 1. 動態檢查或建立 Modal 外殼（完全參照 .image-lightbox 結構，去除白底邊框，改成無邊框滿版）
+  let modal = document.getElementById('storeDetailModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'storeDetailModal';
+    // 復刻與 .image-lightbox 相同的 class 名稱，以便完美套用 styles.css 裡面的現成燈箱樣式
+    modal.className = 'image-lightbox hidden';
+    modal.innerHTML = `
+      <div class="image-lightbox-backdrop store-detail-backdrop"></div>
+      <div class="image-lightbox-panel">
+        <button type="button" class="image-lightbox-close store-detail-close">×</button>
+        <img class="image-lightbox-img store-detail-img" alt="門市詳情圖">
+      </div>`;
+    document.body.appendChild(modal);
+  }
 
-  // 1. 打開詳情
-  document.querySelectorAll('.store-detail-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      toggleLoader(true);
+  const modalImage = modal.querySelector('.store-detail-img');
 
-      modalImage.onload = () => { toggleLoader(false); };
-      modalImage.src = storeImages[btn.getAttribute('data-store')] || '';
+  // 2. 打開詳情事件監聽（使用全局監聽代理，安全且不漏抓按鈕）
+  document.removeEventListener('click', handleStoreDetailClick);
+  document.addEventListener('click', handleStoreDetailClick);
+
+  function handleStoreDetailClick(e) {
+    const btn = e.target.closest('.store-detail-btn');
+    if (!btn) return;
+
+    e.preventDefault();
+    if (typeof toggleLoader === 'function') toggleLoader(true);
+
+    // 參照產品大圖邏輯：先用 new Image() 預載入，確保完全載入後才華麗現身
+    const tempImg = new Image();
+    const storeKey = btn.getAttribute('data-store');
+
+    // 防呆修正：如果 HTML 是 'tiedao'，對照 JS 的 'tiedao' 就能精準命中路徑
+    tempImg.src = storeImages[storeKey] || '';
+
+    tempImg.onload = () => {
+      modalImage.src = tempImg.src;
+      if (typeof toggleLoader === 'function') toggleLoader(false);
+
+      // 顯示燈箱並鎖定視窗滾動
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
-    });
-  });
 
-  // 2. 統一的關閉邏輯
-  const closeModal = () => {
-    modal.classList.add('hidden');
-    modalImage.src = ''; // 釋放記憶體
-    document.body.style.overflow = '';
-  };
+      // 點開詳情大圖時，同樣觸發暫停所有輪播滾動以節省效能
+      if (Array.isArray(carousels)) {
+        carousels.forEach(carousel => {
+          if (typeof carousel.pauseAutoplay === 'function') carousel.pauseAutoplay();
+        });
+      }
+    };
 
+    tempImg.onerror = () => {
+      if (typeof toggleLoader === 'function') toggleLoader(false);
+      console.error("門市詳情圖片載入失敗，請檢查路徑：", tempImg.src);
+    };
+  }
+
+  // 3. 綁定手勢縮放與統一的關閉邏輯
   const closeBtn = modal.querySelector('.store-detail-close');
-  if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); closeModal(); });
-
   const backdrop = modal.querySelector('.store-detail-backdrop');
-  if (backdrop) backdrop.addEventListener('click', closeModal);
 
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) { closeModal(); }
-  });
-
-  // 移動端手勢縮放
-  setupMobilePinchZoom(modal, modalImage, closeBtn, backdrop);
-} // <--- 確保這個結束的大括號有好好對齊 function
+  if (typeof setupMobilePinchZoom === 'function') {
+    setupMobilePinchZoom(modal, modalImage, closeBtn, backdrop);
+  }
+}
 
 function setupProductLightbox() {
   let lightbox = document.getElementById('productLightbox');
