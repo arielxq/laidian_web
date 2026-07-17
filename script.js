@@ -365,13 +365,19 @@ function toggleLoader(show) {
 // ========== 通用彈出層與縮放功能 ==========
 // ========== 通用彈出層與縮放功能（完全復刻產品燈箱機制與樣式） ==========
 function setupStoreDetails() {
-  const storeImages = {
+  const storeDetailImages = {
     'tiedao': 'images/tiedao1.webp',
     'douhua': 'images/douhua.webp',
     'nongzhai': 'images/nongzhai1.webp',
     'youce': 'images/youce1.webp',
     'gaoxiong': 'images/sanluzhiyi.webp',
     'japan': 'images/lutai.webp'
+  };
+
+  const storeCouponImages = {
+    'nongzhai': 'images/celenongzhai1.webp',
+    'youce': 'images/celeyouce1.webp',
+    'gaoxiong': 'images/celesanluzhiyi1.webp'
   };
 
   // 1. 動態檢查或建立 Modal 外殼（完全參照 .image-lightbox 結構，去除白底邊框，改成無邊框滿版）
@@ -392,33 +398,21 @@ function setupStoreDetails() {
 
   const modalImage = modal.querySelector('.store-detail-img');
 
-  // 2. 打開詳情事件監聽（使用全局監聽代理，安全且不漏抓按鈕）
-  document.removeEventListener('click', handleStoreDetailClick);
-  document.addEventListener('click', handleStoreDetailClick);
+  function openStoreDetailModal(storeKey, imageType = 'detail') {
+    if (!storeKey) return;
 
-  function handleStoreDetailClick(e) {
-    const btn = e.target.closest('.store-detail-btn');
-    if (!btn) return;
-
-    e.preventDefault();
     if (typeof toggleLoader === 'function') toggleLoader(true);
 
-    // 參照產品大圖邏輯：先用 new Image() 預載入，確保完全載入後才華麗現身
+    const imageMap = imageType === 'coupon' ? storeCouponImages : storeDetailImages;
     const tempImg = new Image();
-    const storeKey = btn.getAttribute('data-store');
-
-    // 防呆修正：如果 HTML 是 'tiedao'，對照 JS 的 'tiedao' 就能精準命中路徑
-    tempImg.src = storeImages[storeKey] || '';
+    tempImg.src = imageMap[storeKey] || '';
 
     tempImg.onload = () => {
       modalImage.src = tempImg.src;
       if (typeof toggleLoader === 'function') toggleLoader(false);
-
-      // 顯示燈箱並鎖定視窗滾動
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
 
-      // 點開詳情大圖時，同樣觸發暫停所有輪播滾動以節省效能
       if (Array.isArray(carousels)) {
         carousels.forEach(carousel => {
           if (typeof carousel.pauseAutoplay === 'function') carousel.pauseAutoplay();
@@ -430,6 +424,22 @@ function setupStoreDetails() {
       if (typeof toggleLoader === 'function') toggleLoader(false);
       console.error("門市詳情圖片載入失敗，請檢查路徑：", tempImg.src);
     };
+  }
+
+  // 2. 打開詳情事件監聽（使用全局監聽代理，安全且不漏抓按鈕）
+  document.removeEventListener('click', handleStoreDetailClick);
+  document.addEventListener('click', handleStoreDetailClick);
+
+  function handleStoreDetailClick(e) {
+    const targetBtn = e.target.closest('.store-detail-btn, .store-coupon-btn');
+    if (!targetBtn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const storeKey = targetBtn.getAttribute('data-store');
+    const imageType = targetBtn.getAttribute('data-image-type') || 'detail';
+    openStoreDetailModal(storeKey, imageType);
   }
 
   // 3. 綁定手勢縮放與統一的關閉邏輯

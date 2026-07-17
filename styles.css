@@ -1081,7 +1081,8 @@ button,
 
 .store-link,
 .store-detail-btn,
-.store-address-btn {
+.store-address-btn,
+.store-coupon-btn {
   display: inline-block;
   padding: 8px 16px;
   background: var(--primary);
@@ -1098,7 +1099,8 @@ button,
 
 .store-link:hover,
 .store-detail-btn:hover,
-.store-address-btn:hover {
+.store-address-btn:hover,
+.store-coupon-btn:hover {
   background: var(--primary-dark);
   box-shadow: var(--shadow-md);
   transform: rotate(-1deg);
@@ -1111,6 +1113,10 @@ button,
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.store-coupon-btn {
+  min-width: 92px;
 }
 
 
@@ -1158,9 +1164,9 @@ button,
 
 .image-lightbox-close,
 .store-detail-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+  position: fixed;
+  top: clamp(14px, 3vw, 28px);
+  right: clamp(14px, 3vw, 28px);
   width: 44px;
   height: 44px;
   border: none;
@@ -1250,6 +1256,19 @@ button,
 }
 
 @media (max-width: 768px) {
+  .store-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .store-link,
+  .store-detail-btn,
+  .store-address-btn,
+  .store-coupon-btn {
+    width: 100%;
+    text-align: center;
+  }
+
   #page-title {
     font-size: 2.5rem !important;
     line-height: 1.2 !important;
